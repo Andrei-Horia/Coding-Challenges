@@ -1,0 +1,28 @@
+#Nested Lists
+if __name__ == '__main__':
+    vec = []
+    d = {}
+    l = []
+    for _ in range(int(input())):
+        name = input()
+        score = float(input())
+        if name in d:
+          l = d[name]
+          l.append(score)
+          d[name] = l  
+        else:
+            d[name] = [score]
+        
+        if(score not in vec):
+            vec.append(score)
+        
+    vec.sort()
+    names = []
+    for i in d:
+        if vec[1] in d[i]:
+            names.append(i)
+    
+    names.sort()
+    for i in names:
+        print(i)
+
