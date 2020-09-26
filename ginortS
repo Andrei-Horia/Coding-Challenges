@@ -1,0 +1,42 @@
+#ginortS
+s = input()
+str = []
+for i in s:
+    str.append(i)
+
+
+while True:
+    ok = 0
+    for i in range(len(str) - 1):
+        if((str[i]>='A' and str[i]<='Z') and str[i+1]<='z' and str[i+1]>='a'):
+            str[i],str[i+1] = str[i+1],str[i]
+            ok = 1
+        if(str[i]>='a' and str[i]<='z' and str[i+1]>='a' and str[i+1]<='z' and str[i+1]<str[i]):
+            str[i],str[i+1] = str[i+1],str[i]
+            ok = 1
+        if(str[i]>='0' and str[i]<='9' and ((str[i+1]>='a' and str[i+1]<='z') or (str[i+1]>='A' and str[i+1]<='Z'))):
+            str[i],str[i+1] = str[i+1],str[i]
+            ok = 1
+        
+        if(str[i]>='A' and str[i]<='Z' and str[i+1]>='A' and str[i+1]<='Z' and str[i]>str[i+1]):
+            str[i],str[i+1] = str[i+1],str[i]
+            ok = 1 
+            
+        if(str[i]>='0' and str[i+1]<='9' and str[i+1]>='0' and str[i+1]<='9' and (str[i] in "02468") and (str[i+1] in "13579")):
+            str[i],str[i+1] = str[i+1],str[i]
+            ok = 1
+            
+        if(str[i]>='0' and str[i+1]<='9' and str[i+1]<='9' and str[i+1]>='0' and (str[i] in "02468" and str[i+1] in "02468" and str[i]>str[i+1])):
+            str[i],str[i+1] = str[i+1],str[i]
+            ok = 1
+            
+        if(str[i]>='0' and str[i+1]<='9' and str[i+1]<='9' and str[i+1]>='0' and (str[i] in "13579" and str[i+1] in "13579" and str[i]>str[i+1])):
+            str[i],str[i+1] = str[i+1],str[i]
+            ok = 1
+    if(ok==0):
+        break
+
+l = ""
+for i in str:
+    l += i 
+print(l)
